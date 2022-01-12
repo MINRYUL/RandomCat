@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class RandomCatViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
