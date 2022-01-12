@@ -7,12 +7,19 @@
 
 import UIKit
 
-class TabBarController: UITabBarController {
+final class TabBarController: UITabBarController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+    }
+    
+    private func configureController() {
+        let randomCatViewController = UINavigationController(rootViewController: RandomCatViewController())
+        randomCatViewController.title = "RandomCat"
+        
+        self.viewControllers = [randomCatViewController]
     }
 
 }
