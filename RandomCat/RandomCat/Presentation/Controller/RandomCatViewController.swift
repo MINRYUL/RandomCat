@@ -6,9 +6,8 @@
 //
 
 import UIKit
-import SwiftUI
 
-class RandomCatViewController: UIViewController {
+final class RandomCatViewController: UIViewController {
     enum RandomCatSection: Int, CaseIterable {
         case main
     }

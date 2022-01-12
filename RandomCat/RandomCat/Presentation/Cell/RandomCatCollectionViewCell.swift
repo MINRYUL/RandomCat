@@ -7,7 +7,7 @@
 
 import UIKit
 
-class RandomCatCollectionViewCell: UICollectionViewCell {
+final class RandomCatCollectionViewCell: UICollectionViewCell {
     static let identifier = "RandomCatCell"
     
     lazy private var catImage: UIImageView = {
