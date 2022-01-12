@@ -14,6 +14,7 @@
 		DABB3A52278EC6D600188647 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DABB3A51278EC6D600188647 /* Assets.xcassets */; };
 		DABB3A55278EC6D600188647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABB3A53278EC6D600188647 /* LaunchScreen.storyboard */; };
 		DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A5C278EC76100188647 /* TabBarController.swift */; };
+		DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		DABB3A54278EC6D600188647 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DABB3A56278EC6D600188647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DABB3A5C278EC76100188647 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
+		DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -86,6 +88,7 @@
 		DABB3A60278EC83200188647 /* Presentation */ = {
 			isa = PBXGroup;
 			children = (
+				DABB3A64278ECCBC00188647 /* Cell */,
 				DABB3A62278EC85C00188647 /* Controller */,
 			);
 			path = Presentation;
@@ -116,6 +119,14 @@
 				DABB3A4E278EC6D300188647 /* Main.storyboard */,
 			);
 			path = Resource;
+			sourceTree = "<group>";
+		};
+		DABB3A64278ECCBC00188647 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */,
+			);
+			path = Cell;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -193,6 +204,7 @@
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
+				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
