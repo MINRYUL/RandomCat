@@ -8,19 +8,19 @@
 import Foundation
 
 enum NetworkError: Error {
-    case error(statusCode: Int, data: Data?)
+    case error(statusCode: Int, data: Data)
     case notConnected
 }
 
 protocol NetworkService {
-    typealias CompletionHandler = (Result<Data, NetworkError>) -> Void
+    typealias CompletionHandler = (Result<Data, Error>) -> Void
     
     func get(url: String, headers: [String: String], completion: @escaping CompletionHandler)
     func request(urlRequest: URLRequest, completion: @escaping CompletionHandler)
 }
 
 public final class DefaultNetworkService: NetworkService {
-    typealias CompletionHandler = (Result<Data, NetworkError>) -> Void
+    typealias CompletionHandler = (Result<Data, Error>) -> Void
     
     func get(url: String, headers: [String: String], completion: @escaping CompletionHandler) {
         guard let url = URL(string: url) else { return }

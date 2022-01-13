@@ -18,8 +18,9 @@
 		DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A72278ED98900188647 /* RandomCatViewModel.swift */; };
 		DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */; };
 		DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */; };
-		DAC3B754278FFFE000FF9E9A /* DefaultNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */; };
-		DAC3B7562790071F00FF9E9A /* DefaultHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */; };
+		DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* NetworkService.swift */; };
+		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
+		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,8 +37,9 @@
 		DABB3A72278ED98900188647 /* RandomCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatViewModel.swift; sourceTree = "<group>"; };
 		DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatUseCase.swift; sourceTree = "<group>"; };
 		DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatRepositiory.swift; sourceTree = "<group>"; };
-		DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkService.swift; sourceTree = "<group>"; };
-		DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHTTPRequest.swift; sourceTree = "<group>"; };
+		DAC3B753278FFFE000FF9E9A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
+		DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageResponseDTO.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -155,8 +157,9 @@
 		DAC3B74B278FFE8C00FF9E9A /* Network */ = {
 			isa = PBXGroup;
 			children = (
-				DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */,
-				DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */,
+				DAC3B7572790132100FF9E9A /* DataMapping */,
+				DAC3B753278FFFE000FF9E9A /* NetworkService.swift */,
+				DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -182,6 +185,14 @@
 				DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */,
 			);
 			path = Repositiories;
+			sourceTree = "<group>";
+		};
+		DAC3B7572790132100FF9E9A /* DataMapping */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */,
+			);
+			path = DataMapping;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,11 +271,12 @@
 				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,
 				DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
-				DAC3B754278FFFE000FF9E9A /* DefaultNetworkService.swift in Sources */,
+				DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */,
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
-				DAC3B7562790071F00FF9E9A /* DefaultHTTPRequest.swift in Sources */,
+				DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */,
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
 				DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */,
+				DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
