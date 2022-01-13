@@ -7,13 +7,13 @@
 
 import Foundation
 
-protocol RandomCatRepositiory {
+protocol RandomCatRepository {
     var networkService: NetworkService { get }
     
     func fetchCatImageURL(url: String, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
-final class DefaultRandomCatRepositiory {
+final class DefaultRandomCatRepository: RandomCatRepository {
     let networkService: NetworkService
     
     init(networkService: NetworkService) {

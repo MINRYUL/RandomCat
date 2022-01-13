@@ -17,7 +17,7 @@
 		DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */; };
 		DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A72278ED98900188647 /* RandomCatViewModel.swift */; };
 		DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */; };
-		DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */; };
+		DAC3B752278FFFC200FF9E9A /* RandomCatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B751278FFFC200FF9E9A /* RandomCatRepository.swift */; };
 		DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* NetworkService.swift */; };
 		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
 		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
@@ -36,7 +36,7 @@
 		DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatCollectionViewCell.swift; sourceTree = "<group>"; };
 		DABB3A72278ED98900188647 /* RandomCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatViewModel.swift; sourceTree = "<group>"; };
 		DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatUseCase.swift; sourceTree = "<group>"; };
-		DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatRepositiory.swift; sourceTree = "<group>"; };
+		DAC3B751278FFFC200FF9E9A /* RandomCatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatRepository.swift; sourceTree = "<group>"; };
 		DAC3B753278FFFE000FF9E9A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageResponseDTO.swift; sourceTree = "<group>"; };
@@ -72,6 +72,7 @@
 		DABB3A47278EC6D300188647 /* RandomCat */ = {
 			isa = PBXGroup;
 			children = (
+				DAC3B75A27901A9400FF9E9A /* Utility */,
 				DABB3A63278EC87400188647 /* Resource */,
 				DABB3A61278EC84F00188647 /* Domain */,
 				DABB3A60278EC83200188647 /* Presentation */,
@@ -93,7 +94,7 @@
 		DABB3A5F278EC82B00188647 /* Data */ = {
 			isa = PBXGroup;
 			children = (
-				DAC3B74E278FFF3C00FF9E9A /* Repositiories */,
+				DAC3B74E278FFF3C00FF9E9A /* Repositories */,
 				DAC3B74B278FFE8C00FF9E9A /* Network */,
 			);
 			path = Data;
@@ -179,12 +180,12 @@
 			path = Entities;
 			sourceTree = "<group>";
 		};
-		DAC3B74E278FFF3C00FF9E9A /* Repositiories */ = {
+		DAC3B74E278FFF3C00FF9E9A /* Repositories */ = {
 			isa = PBXGroup;
 			children = (
-				DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */,
+				DAC3B751278FFFC200FF9E9A /* RandomCatRepository.swift */,
 			);
-			path = Repositiories;
+			path = Repositories;
 			sourceTree = "<group>";
 		};
 		DAC3B7572790132100FF9E9A /* DataMapping */ = {
@@ -193,6 +194,21 @@
 				DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */,
 			);
 			path = DataMapping;
+			sourceTree = "<group>";
+		};
+		DAC3B75A27901A9400FF9E9A /* Utility */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3B75B27901ABC00FF9E9A /* Constant */,
+			);
+			path = Utility;
+			sourceTree = "<group>";
+		};
+		DAC3B75B27901ABC00FF9E9A /* Constant */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Constant;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -275,7 +291,7 @@
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
 				DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */,
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
-				DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */,
+				DAC3B752278FFFC200FF9E9A /* RandomCatRepository.swift in Sources */,
 				DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

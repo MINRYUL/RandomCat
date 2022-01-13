@@ -8,5 +8,13 @@
 import Foundation
 
 final class RandomCatUseCase {
+    let randomCatRepository: RandomCatRepository
     
+    init(randomCatRepository: RandomCatRepository) {
+        self.randomCatRepository = randomCatRepository
+    }
+    
+    func fetchCatImage(completion: @escaping (Result<Data, Error>) -> Void) {
+        self.randomCatRepository.fetchCatImageURL(url: <#T##String#>, completion: <#T##(Result<Data, Error>) -> Void#>)
+    }
 }
