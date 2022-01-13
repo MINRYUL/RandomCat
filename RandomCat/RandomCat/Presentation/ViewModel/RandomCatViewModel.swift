@@ -8,5 +8,11 @@
 import Foundation
 
 final class RandomCatViewModel {
+    let randomCatUseCase: RandomCatUseCase
     
+    init(randomCatUseCase: RandomCatUseCase) {
+        self.randomCatUseCase = randomCatUseCase
+    }
+    
+    func fetchCat
 }
