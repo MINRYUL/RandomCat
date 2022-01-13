@@ -7,7 +7,17 @@
 
 import Foundation
 
-struct CatModel {
+struct CatModel: Hashable {
+    var id = UUID()
+    
     let imageURL: String
     let imageNumber: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: CatModel, rhs: CatModel) -> Bool {
+        lhs.id == rhs.id
+    }
 }

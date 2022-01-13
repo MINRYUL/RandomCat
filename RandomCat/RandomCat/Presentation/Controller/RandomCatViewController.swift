@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Combine
 
 final class RandomCatViewController: UIViewController {
     enum RandomCatSection: Int, CaseIterable {
@@ -23,30 +24,65 @@ final class RandomCatViewController: UIViewController {
     }()
     
     private var dataSource: RandomCatDataSource?
+    private var snapShot: RandomCatSnapshot?
+    private var viewModel: RandomCatViewModel?
+    private var cancellables = Set<AnyCancellable>()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        self.configureViewModel()
         self.configureView()
         self.configureCollectionView()
+        self.configureSnapShot()
         self.configureDataSource()
         self.configureBinding()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        self.viewDidAppear(animated)
+        self.viewModel?.fetchCatImage()
+    }
+    
     private func bindSnapShotApply(section: RandomCatSection, item: [AnyHashable]) {
         DispatchQueue.main.async { [weak self] in
-            var snapshot = RandomCatSnapshot()
-            snapshot.appendSections([.main])
+            guard var snapShot = self?.snapShot else { return }
             item.forEach {
-                snapshot.appendItems([$0], toSection: section)
+                snapShot.appendItems([$0], toSection: section)
             }
-            self?.dataSource?.apply(snapshot, animatingDifferences: true)
+            self?.dataSource?.apply(snapShot, animatingDifferences: true)
         }
     }
     
+    private func reloadCellSnapShotApply(section: RandomCatSection, item: AnyHashable) {
+        DispatchQueue.main.async { [weak self] in
+            guard var snapShot = self?.snapShot else { return }
+            snapShot.reloadItems([item])
+            self?.dataSource?.apply(snapShot, animatingDifferences: true)
+        }
+    }
+    
+    private func configureSnapShot() {
+        self.snapShot = RandomCatSnapshot()
+        self.snapShot?.appendSections([.main])
+        self.viewModel?.appendDefaultCatImage()
+    }
+    
     private func configureBinding() {
-        let data = [1, 2, 3, 4, 5, 6, 7]
-        self.bindSnapShotApply(section: .main, item: data)
+        self.viewModel?.$catModels
+            .receive(on: DispatchQueue.main)
+            .sink( receiveValue: { [weak self] catModels in
+                guard let catModel = catModels.last else { return }
+                guard catModel.imageURL.isEmpty else {
+                    self?.reloadCellSnapShotApply(section: .main, item: catModel)
+                    return
+                }
+                self?.bindSnapShotApply(section: .main, item: catModels)
+            })
+            .store(in: &self.cancellables)
+    }
+    
+    private func configureViewModel() {
+        self.viewModel = RandomCatViewModel(randomCatUseCase: RandomCatUseCase(randomCatRepository: DefaultRandomCatRepository(networkService: DefaultNetworkService())))
     }
 
     private func configureView() {

@@ -23,7 +23,7 @@ final class RandomCatUseCase {
                     guard let result = try? JSONDecoder().decode(CatImageResponseDTO.self, from: data) else { return }
                     completion(CatModel(imageURL: result.url, imageNumber: i))
                 case .failure(let error):
-                    guard let error = error as? NetworkError else { return }
+                    guard let _ = error as? NetworkError else { return }
                     break
                 }
             }
