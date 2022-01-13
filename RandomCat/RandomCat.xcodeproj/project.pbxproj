@@ -16,6 +16,10 @@
 		DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A5C278EC76100188647 /* TabBarController.swift */; };
 		DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */; };
 		DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A72278ED98900188647 /* RandomCatViewModel.swift */; };
+		DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */; };
+		DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */; };
+		DAC3B754278FFFE000FF9E9A /* DefaultNetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */; };
+		DAC3B7562790071F00FF9E9A /* DefaultHTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,6 +34,10 @@
 		DABB3A5C278EC76100188647 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatCollectionViewCell.swift; sourceTree = "<group>"; };
 		DABB3A72278ED98900188647 /* RandomCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatViewModel.swift; sourceTree = "<group>"; };
+		DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatUseCase.swift; sourceTree = "<group>"; };
+		DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatRepositiory.swift; sourceTree = "<group>"; };
+		DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultNetworkService.swift; sourceTree = "<group>"; };
+		DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultHTTPRequest.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,6 +91,8 @@
 		DABB3A5F278EC82B00188647 /* Data */ = {
 			isa = PBXGroup;
 			children = (
+				DAC3B74E278FFF3C00FF9E9A /* Repositiories */,
+				DAC3B74B278FFE8C00FF9E9A /* Network */,
 			);
 			path = Data;
 			sourceTree = "<group>";
@@ -100,6 +110,8 @@
 		DABB3A61278EC84F00188647 /* Domain */ = {
 			isa = PBXGroup;
 			children = (
+				DAC3B74D278FFF2000FF9E9A /* Entities */,
+				DAC3B74C278FFF1500FF9E9A /* UseCase */,
 			);
 			path = Domain;
 			sourceTree = "<group>";
@@ -138,6 +150,38 @@
 				DABB3A72278ED98900188647 /* RandomCatViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		DAC3B74B278FFE8C00FF9E9A /* Network */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3B753278FFFE000FF9E9A /* DefaultNetworkService.swift */,
+				DAC3B7552790071F00FF9E9A /* DefaultHTTPRequest.swift */,
+			);
+			path = Network;
+			sourceTree = "<group>";
+		};
+		DAC3B74C278FFF1500FF9E9A /* UseCase */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */,
+			);
+			path = UseCase;
+			sourceTree = "<group>";
+		};
+		DAC3B74D278FFF2000FF9E9A /* Entities */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Entities;
+			sourceTree = "<group>";
+		};
+		DAC3B74E278FFF3C00FF9E9A /* Repositiories */ = {
+			isa = PBXGroup;
+			children = (
+				DAC3B751278FFFC200FF9E9A /* RandomCatRepositiory.swift */,
+			);
+			path = Repositiories;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -214,9 +258,13 @@
 				DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */,
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
 				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,
+				DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
+				DAC3B754278FFFE000FF9E9A /* DefaultNetworkService.swift in Sources */,
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
+				DAC3B7562790071F00FF9E9A /* DefaultHTTPRequest.swift in Sources */,
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
+				DAC3B752278FFFC200FF9E9A /* RandomCatRepositiory.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
