@@ -6,13 +6,19 @@
 //
 
 import Foundation
+import Combine
 
 final class RandomCatViewModel {
-    let randomCatUseCase: RandomCatUseCase
+    @Published var catModels = [CatModel]()
+    private let randomCatUseCase: RandomCatUseCase
     
     init(randomCatUseCase: RandomCatUseCase) {
         self.randomCatUseCase = randomCatUseCase
     }
     
-    func fetchCat
+    func fetchCatImage() {
+        self.randomCatUseCase.fetchCatImage() { [weak self] catModel in
+            self?.catModels.append(catModel)
+        }
+    }
 }

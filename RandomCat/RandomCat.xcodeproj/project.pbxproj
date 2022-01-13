@@ -22,6 +22,7 @@
 		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
 		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
 		DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */; };
+		DAC3B75F279020E400FF9E9A /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75E279020E400FF9E9A /* CatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,7 @@
 		DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageResponseDTO.swift; sourceTree = "<group>"; };
 		DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageConstant.swift; sourceTree = "<group>"; };
+		DAC3B75E279020E400FF9E9A /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,8 +76,8 @@
 		DABB3A47278EC6D300188647 /* RandomCat */ = {
 			isa = PBXGroup;
 			children = (
-				DAC3B75A27901A9400FF9E9A /* Utility */,
 				DABB3A63278EC87400188647 /* Resource */,
+				DAC3B75A27901A9400FF9E9A /* Utility */,
 				DABB3A61278EC84F00188647 /* Domain */,
 				DABB3A60278EC83200188647 /* Presentation */,
 				DABB3A5F278EC82B00188647 /* Data */,
@@ -178,6 +180,7 @@
 		DAC3B74D278FFF2000FF9E9A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
+				DAC3B75E279020E400FF9E9A /* CatModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -286,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */,
+				DAC3B75F279020E400FF9E9A /* CatModel.swift in Sources */,
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
 				DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */,
 				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,
