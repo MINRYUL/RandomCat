@@ -15,6 +15,6 @@ final class RandomCatUseCase {
     }
     
     func fetchCatImage(completion: @escaping (Result<Data, Error>) -> Void) {
-        self.randomCatRepository.fetchCatImageURL(url: <#T##String#>, completion: <#T##(Result<Data, Error>) -> Void#>)
+        self.randomCatRepository.fetchCatImageURL(url: CatImageConstant.cat, completion: completion)
     }
 }

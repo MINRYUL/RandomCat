@@ -21,6 +21,7 @@
 		DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* NetworkService.swift */; };
 		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
 		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
+		DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		DAC3B753278FFFE000FF9E9A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
 		DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageResponseDTO.swift; sourceTree = "<group>"; };
+		DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageConstant.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -207,6 +209,7 @@
 		DAC3B75B27901ABC00FF9E9A /* Constant */ = {
 			isa = PBXGroup;
 			children = (
+				DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */,
 			);
 			path = Constant;
 			sourceTree = "<group>";
@@ -284,6 +287,7 @@
 			files = (
 				DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */,
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
+				DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */,
 				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,
 				DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
