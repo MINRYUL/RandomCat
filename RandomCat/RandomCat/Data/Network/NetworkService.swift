@@ -10,6 +10,7 @@ import Foundation
 enum NetworkError: Error {
     case error(statusCode: Int, data: Data)
     case notConnected
+    case unknownError
 }
 
 protocol NetworkService {
@@ -32,11 +33,16 @@ public final class DefaultNetworkService: NetworkService {
     func request(urlRequest: URLRequest, completion: @escaping CompletionHandler) {
         URLSession.shared.dataTask(with: urlRequest) { (data: Data?, response: URLResponse?, error: Error?) in
             guard let data = data,
-                  let response = response as? HTTPURLResponse,
-                  let _ = error else {
+                  let response = response as? HTTPURLResponse else {
                 completion(.failure(NetworkError.notConnected))
                 return
             }
+            
+            guard error == nil else {
+                completion(.failure(NetworkError.unknownError))
+                return
+            }
+            
             guard 200...299 ~= response.statusCode else {
                 completion(.failure(NetworkError.error(statusCode: response.statusCode, data: data)))
                 return

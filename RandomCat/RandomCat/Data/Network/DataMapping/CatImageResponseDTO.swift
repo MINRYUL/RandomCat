@@ -8,7 +8,6 @@
 import Foundation
 
 struct CatImageResponseDTO: Codable {
-    let breeds: String?
     let id: String
     let url: String
     let width: Int
