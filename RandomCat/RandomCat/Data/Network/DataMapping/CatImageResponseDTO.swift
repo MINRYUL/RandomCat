@@ -7,9 +7,19 @@
 
 import Foundation
 
-struct CatImageResponseDTO: Codable {
+struct CatImageResponseDTO: Codable, Hashable {
+    var identify = UUID()
+    
     let id: String
     let url: String
     let width: Int
     let height: Int
+    
+    func hash(into hasher: inout Hasher) {
+        hasher.combine(id)
+    }
+    
+    static func == (lhs: CatImageResponseDTO, rhs: CatImageResponseDTO) -> Bool {
+        lhs.id == rhs.id
+    }
 }
