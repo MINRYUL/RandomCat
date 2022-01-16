@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */; };
 		DAB6C8282794010300BAF7E6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */; };
+		DAB6C82A2794041200BAF7E6 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8292794041200BAF7E6 /* ImageItem.swift */; };
 		DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A48278EC6D300188647 /* AppDelegate.swift */; };
 		DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4A278EC6D300188647 /* SceneDelegate.swift */; };
 		DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4C278EC6D300188647 /* RandomCatViewController.swift */; };
@@ -29,6 +30,7 @@
 /* Begin PBXFileReference section */
 		DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 		DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
+		DAB6C8292794041200BAF7E6 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
 		DABB3A45278EC6D300188647 /* RandomCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABB3A48278EC6D300188647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABB3A4A278EC6D300188647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -184,6 +186,7 @@
 			isa = PBXGroup;
 			children = (
 				DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */,
+				DAB6C8292794041200BAF7E6 /* ImageItem.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -303,6 +306,7 @@
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
 				DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */,
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
+				DAB6C82A2794041200BAF7E6 /* ImageItem.swift in Sources */,
 				DAC3B752278FFFC200FF9E9A /* RandomCatRepository.swift in Sources */,
 				DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */,
 			);

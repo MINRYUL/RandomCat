@@ -116,8 +116,8 @@ final class RandomCatViewController: UIViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RandomCatCollectionViewCell.identifier, for: indexPath) as? RandomCatCollectionViewCell else {
                 return UICollectionViewCell()
             }
-            guard let item = item as? RandomCatCollectionViewCell else { return cell }
-            
+            guard let item = item as? CatModel else { return cell }
+            cell.update(catModel: item)
             return cell
         })
         
