@@ -41,7 +41,7 @@ final class RandomCatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidAppear(animated)
-        self.viewModel?.fetchCatImage()
+        self.viewModel?.fetchCatData()
     }
     
     private func bindSnapShotApply(section: RandomCatSection, item: [AnyHashable]) {

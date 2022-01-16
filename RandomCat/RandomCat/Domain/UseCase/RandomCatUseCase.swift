@@ -15,9 +15,9 @@ final class RandomCatUseCase {
         self.randomCatRepository = randomCatRepository
     }
     
-    func fetchCatImage(completion: @escaping (CatModel) -> Void) {
+    func fetchCatData(completion: @escaping (CatModel) -> Void) {
         for _ in self.imageCount...(self.imageCount + 9) {
-            self.randomCatRepository.fetchCatImageURL(url: CatImageConstant.cat) { result in
+            self.randomCatRepository.fetchCatDataURL(url: CatImageConstant.cat) { result in
                 switch result {
                 case .success(let data):
                     guard let result = try? JSONDecoder().decode([CatImageResponseDTO].self, from: data) else { return }

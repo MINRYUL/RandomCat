@@ -27,7 +27,7 @@ public final class DefaultNetworkService: NetworkService {
         guard let url = URL(string: url) else { return }
         let urlRequest = DefaultHTTPRequest(baseURL: url, headers: headers, httpMethod: HTTPMethodType.get)
         
-        request(urlRequest: urlRequest.request, completion: completion)
+        self.request(urlRequest: urlRequest.request, completion: completion)
     }
     
     func request(urlRequest: URLRequest, completion: @escaping CompletionHandler) {

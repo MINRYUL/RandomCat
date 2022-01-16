@@ -10,7 +10,7 @@ import Foundation
 protocol RandomCatRepository {
     var networkService: NetworkService { get }
     
-    func fetchCatImageURL(url: String, completion: @escaping (Result<Data, Error>) -> Void)
+    func fetchCatDataURL(url: String, completion: @escaping (Result<Data, Error>) -> Void)
 }
 
 final class DefaultRandomCatRepository: RandomCatRepository {
@@ -20,7 +20,7 @@ final class DefaultRandomCatRepository: RandomCatRepository {
         self.networkService = networkService
     }
     
-    func fetchCatImageURL(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
+    func fetchCatDataURL(url: String, completion: @escaping (Result<Data, Error>) -> Void) {
         self.networkService.get(url: url, headers: [String: String](), completion: completion)
     }
 }

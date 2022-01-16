@@ -16,8 +16,8 @@ final class RandomCatViewModel {
         self.randomCatUseCase = randomCatUseCase
     }
     
-    func fetchCatImage() {
-        self.randomCatUseCase.fetchCatImage() { [weak self] catModel in
+    func fetchCatData() {
+        self.randomCatUseCase.fetchCatData() { [weak self] catModel in
             self?.catModels.append(catModel)
         }
     }
