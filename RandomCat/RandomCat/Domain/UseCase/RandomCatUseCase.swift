@@ -20,9 +20,6 @@ final class RandomCatUseCase {
             self.randomCatRepository.fetchCatImageURL(url: CatImageConstant.cat) { result in
                 switch result {
                 case .success(let data):
-                    if let jsonStr = String(data: data, encoding: .utf8) {
-                        print(jsonStr)
-                    }
                     guard let result = try? JSONDecoder().decode([CatImageResponseDTO].self, from: data) else { return }
                     guard let catIamge = result.first else { return }
                     let catModel = CatModel(url: catIamge.url)
