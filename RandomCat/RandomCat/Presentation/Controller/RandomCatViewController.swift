@@ -27,6 +27,7 @@ final class RandomCatViewController: UIViewController {
     private var snapShot: RandomCatSnapshot?
     private var viewModel: RandomCatViewModel?
     private var cancellables = Set<AnyCancellable>()
+    private var imageCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,18 +65,12 @@ final class RandomCatViewController: UIViewController {
     private func configureSnapShot() {
         self.snapShot = RandomCatSnapshot()
         self.snapShot?.appendSections([.main])
-        self.viewModel?.appendDefaultCatImage()
     }
     
     private func configureBinding() {
         self.viewModel?.$catModels
             .receive(on: DispatchQueue.main)
             .sink( receiveValue: { [weak self] catModels in
-                guard let catModel = catModels.last else { return }
-                guard catModel.imageURL.isEmpty else {
-                    self?.reloadCellSnapShotApply(section: .main, item: catModel)
-                    return
-                }
                 self?.bindSnapShotApply(section: .main, item: catModels)
             })
             .store(in: &self.cancellables)

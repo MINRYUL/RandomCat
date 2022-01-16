@@ -16,13 +16,17 @@ final class RandomCatUseCase {
     }
     
     func fetchCatImage(completion: @escaping (CatModel) -> Void) {
-        for i in self.imageCount...(self.imageCount + 9) {
+        for _ in self.imageCount...(self.imageCount + 9) {
             self.randomCatRepository.fetchCatImageURL(url: CatImageConstant.cat) { result in
                 switch result {
                 case .success(let data):
+                    if let jsonStr = String(data: data, encoding: .utf8) {
+                        print(jsonStr)
+                    }
                     guard let result = try? JSONDecoder().decode([CatImageResponseDTO].self, from: data) else { return }
                     guard let catIamge = result.first else { return }
-                    completion(CatModel(imageURL: catIamge.url, imageNumber: i))
+                    let catModel = CatModel(url: catIamge.url)
+                    completion(catModel)
                 case .failure(let error):
                     guard let _ = error as? NetworkError else { return }
                     break

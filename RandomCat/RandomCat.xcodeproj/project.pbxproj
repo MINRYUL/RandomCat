@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */; };
 		DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A48278EC6D300188647 /* AppDelegate.swift */; };
 		DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4A278EC6D300188647 /* SceneDelegate.swift */; };
 		DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4C278EC6D300188647 /* RandomCatViewController.swift */; };
@@ -22,10 +23,10 @@
 		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
 		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
 		DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */; };
-		DAC3B75F279020E400FF9E9A /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75E279020E400FF9E9A /* CatModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 		DABB3A45278EC6D300188647 /* RandomCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABB3A48278EC6D300188647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABB3A4A278EC6D300188647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -43,7 +44,6 @@
 		DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPRequest.swift; sourceTree = "<group>"; };
 		DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageResponseDTO.swift; sourceTree = "<group>"; };
 		DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatImageConstant.swift; sourceTree = "<group>"; };
-		DAC3B75E279020E400FF9E9A /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -180,7 +180,7 @@
 		DAC3B74D278FFF2000FF9E9A /* Entities */ = {
 			isa = PBXGroup;
 			children = (
-				DAC3B75E279020E400FF9E9A /* CatModel.swift */,
+				DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */,
 			);
 			path = Entities;
 			sourceTree = "<group>";
@@ -289,7 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */,
-				DAC3B75F279020E400FF9E9A /* CatModel.swift in Sources */,
+				DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */,
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
 				DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */,
 				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,

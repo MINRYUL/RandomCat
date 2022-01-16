@@ -16,18 +16,9 @@ final class RandomCatViewModel {
         self.randomCatUseCase = randomCatUseCase
     }
     
-    func appendDefaultCatImage() {
-        for i in 0...9 {
-            let catModel = CatModel(imageURL: "", imageNumber: i)
-            self.catModels.append(catModel)
-        }
-    }
-    
     func fetchCatImage() {
         self.randomCatUseCase.fetchCatImage() { [weak self] catModel in
-            guard let catModels = self?.catModels else { return }
-            
-            self?.catModels[catModel.imageNumber] = CatModel(id: catModels[catModel.imageNumber].id, imageURL: catModel.imageURL, imageNumber: catModel.imageNumber)
+            self?.catModels.append(catModel)
         }
     }
 }
