@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */; };
+		DAB6C8282794010300BAF7E6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */; };
 		DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A48278EC6D300188647 /* AppDelegate.swift */; };
 		DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4A278EC6D300188647 /* SceneDelegate.swift */; };
 		DABB3A4D278EC6D300188647 /* RandomCatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A4C278EC6D300188647 /* RandomCatViewController.swift */; };
@@ -27,6 +28,7 @@
 
 /* Begin PBXFileReference section */
 		DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
+		DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		DABB3A45278EC6D300188647 /* RandomCat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RandomCat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DABB3A48278EC6D300188647 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DABB3A4A278EC6D300188647 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -78,6 +80,7 @@
 			children = (
 				DABB3A63278EC87400188647 /* Resource */,
 				DAC3B75A27901A9400FF9E9A /* Utility */,
+				DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */,
 				DABB3A61278EC84F00188647 /* Domain */,
 				DABB3A60278EC83200188647 /* Presentation */,
 				DABB3A5F278EC82B00188647 /* Data */,
@@ -296,6 +299,7 @@
 				DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
 				DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */,
+				DAB6C8282794010300BAF7E6 /* ImageCacheManager.swift in Sources */,
 				DABB3A4B278EC6D300188647 /* SceneDelegate.swift in Sources */,
 				DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */,
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
