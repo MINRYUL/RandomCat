@@ -27,6 +27,12 @@ final class RandomCatCollectionViewCell: UICollectionViewCell {
         fatalError("init(coder:) has not been implemented")
     }
     
+    override func prepareForReuse() {
+        super.prepareForReuse()
+        
+        self.catImage.image = UIImage(named: "CatLogo")?.withAlignmentRectInsets(UIEdgeInsets(top: -50, left: -50, bottom: -50, right: -50))
+    }
+    
     final func update(catModel: CatModel) {
         guard let url = URL(string: catModel.url) else { return }
         let imageModel = ImageModel(image: nil, imageUrl: url, identifier: catModel.id.uuidString)

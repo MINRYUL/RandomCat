@@ -130,5 +130,13 @@ extension RandomCatViewController: UICollectionViewDelegate {
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         print(indexPath)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, willDisplay: UICollectionViewCell, forItemAt: IndexPath) {
+        guard forItemAt.row == (self.viewModel?.catModels.count ?? 0) - 1 else {
+            return
+        }
+        
+        self.viewModel?.fetchCatData()
+    }
 }
 

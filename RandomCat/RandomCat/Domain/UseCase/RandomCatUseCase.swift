@@ -16,7 +16,7 @@ final class RandomCatUseCase {
     }
     
     func fetchCatData(completion: @escaping (CatModel) -> Void) {
-        for _ in self.imageCount...(self.imageCount + 9) {
+        for _ in self.imageCount...(self.imageCount + 19) {
             self.randomCatRepository.fetchCatDataURL(url: CatImageConstant.cat) { result in
                 switch result {
                 case .success(let data):
@@ -30,6 +30,6 @@ final class RandomCatUseCase {
                 }
             }
         }
-        self.imageCount += 10
+        self.imageCount += 20
     }
 }
