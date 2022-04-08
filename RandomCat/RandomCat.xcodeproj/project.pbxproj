@@ -72,7 +72,6 @@
 				C006629A599704B0457CD4BB /* Pods-RandomCat.debug.xcconfig */,
 				19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -99,7 +98,6 @@
 			children = (
 				DABB3A63278EC87400188647 /* Resource */,
 				DAC3B75A27901A9400FF9E9A /* Utility */,
-				DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */,
 				DABB3A61278EC84F00188647 /* Domain */,
 				DABB3A60278EC83200188647 /* Presentation */,
 				DABB3A5F278EC82B00188647 /* Data */,
@@ -187,6 +185,7 @@
 				DAC3B7572790132100FF9E9A /* DataMapping */,
 				DAC3B753278FFFE000FF9E9A /* NetworkService.swift */,
 				DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */,
+				DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */,
 			);
 			path = Network;
 			sourceTree = "<group>";
