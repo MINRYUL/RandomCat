@@ -25,9 +25,13 @@
 		DAC3B7562790071F00FF9E9A /* HTTPRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7552790071F00FF9E9A /* HTTPRequest.swift */; };
 		DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B7582790134300FF9E9A /* CatImageResponseDTO.swift */; };
 		DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B75C27901AF600FF9E9A /* CatImageConstant.swift */; };
+		FE3E386C6CE3FBFC80CD541A /* Pods_RandomCat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D17BCB60FA404564B53844E4 /* Pods_RandomCat.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomCat.release.xcconfig"; path = "Target Support Files/Pods-RandomCat/Pods-RandomCat.release.xcconfig"; sourceTree = "<group>"; };
+		C006629A599704B0457CD4BB /* Pods-RandomCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomCat.debug.xcconfig"; path = "Target Support Files/Pods-RandomCat/Pods-RandomCat.debug.xcconfig"; sourceTree = "<group>"; };
+		D17BCB60FA404564B53844E4 /* Pods_RandomCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
 		DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageCacheManager.swift; sourceTree = "<group>"; };
 		DAB6C8292794041200BAF7E6 /* ImageItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageItem.swift; sourceTree = "<group>"; };
@@ -55,17 +59,30 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FE3E386C6CE3FBFC80CD541A /* Pods_RandomCat.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		781859A6C1B03DE0D8B943CD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				C006629A599704B0457CD4BB /* Pods-RandomCat.debug.xcconfig */,
+				19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		DABB3A3C278EC6D300188647 = {
 			isa = PBXGroup;
 			children = (
 				DABB3A47278EC6D300188647 /* RandomCat */,
 				DABB3A46278EC6D300188647 /* Products */,
+				781859A6C1B03DE0D8B943CD /* Pods */,
+				DBE4431150496B5E3EDD58D9 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -223,6 +240,14 @@
 			path = Constant;
 			sourceTree = "<group>";
 		};
+		DBE4431150496B5E3EDD58D9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D17BCB60FA404564B53844E4 /* Pods_RandomCat.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -230,9 +255,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = DABB3A59278EC6D600188647 /* Build configuration list for PBXNativeTarget "RandomCat" */;
 			buildPhases = (
+				FE3BEF9340E4A6164AF69DE0 /* [CP] Check Pods Manifest.lock */,
 				DABB3A41278EC6D300188647 /* Sources */,
 				DABB3A42278EC6D300188647 /* Frameworks */,
 				DABB3A43278EC6D300188647 /* Resources */,
+				AB8469E6AB261C93B030FA79 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -288,6 +315,48 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB8469E6AB261C93B030FA79 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomCat/Pods-RandomCat-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-RandomCat/Pods-RandomCat-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-RandomCat/Pods-RandomCat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		FE3BEF9340E4A6164AF69DE0 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-RandomCat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		DABB3A41278EC6D300188647 /* Sources */ = {
@@ -385,7 +454,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -440,7 +509,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -452,6 +521,7 @@
 		};
 		DABB3A5A278EC6D600188647 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C006629A599704B0457CD4BB /* Pods-RandomCat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -480,6 +550,7 @@
 		};
 		DABB3A5B278EC6D600188647 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
