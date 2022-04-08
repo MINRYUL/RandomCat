@@ -25,7 +25,7 @@ final class RandomCatViewController: UIViewController {
     
     private var dataSource: RandomCatDataSource?
     private var snapShot: RandomCatSnapshot?
-    private var viewModel: RandomCatViewModel?
+    private var viewModel: DefaultRandomCatViewModel?
     private var cancellables = Set<AnyCancellable>()
     private var imageCount = 0
     
@@ -77,7 +77,7 @@ final class RandomCatViewController: UIViewController {
     }
     
     private func configureViewModel() {
-        self.viewModel = RandomCatViewModel(randomCatUseCase: RandomCatUseCase(randomCatRepository: DefaultRandomCatRepository(networkService: DefaultNetworkService())))
+        self.viewModel = DefaultRandomCatViewModel(randomCatUseCase: RandomCatUseCase(randomCatRepository: DefaultRandomCatRepository(networkService: DefaultNetworkService())))
     }
 
     private func configureView() {

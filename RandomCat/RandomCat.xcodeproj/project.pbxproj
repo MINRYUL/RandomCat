@@ -18,7 +18,7 @@
 		DABB3A55278EC6D600188647 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DABB3A53278EC6D600188647 /* LaunchScreen.storyboard */; };
 		DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A5C278EC76100188647 /* TabBarController.swift */; };
 		DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */; };
-		DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A72278ED98900188647 /* RandomCatViewModel.swift */; };
+		DABB3A73278ED98900188647 /* DefaultRandomCatViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DABB3A72278ED98900188647 /* DefaultRandomCatViewModel.swift */; };
 		DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */; };
 		DAC3B752278FFFC200FF9E9A /* RandomCatRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B751278FFFC200FF9E9A /* RandomCatRepository.swift */; };
 		DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAC3B753278FFFE000FF9E9A /* NetworkService.swift */; };
@@ -45,7 +45,7 @@
 		DABB3A56278EC6D600188647 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		DABB3A5C278EC76100188647 /* TabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarController.swift; sourceTree = "<group>"; };
 		DABB3A65278ECCD900188647 /* RandomCatCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatCollectionViewCell.swift; sourceTree = "<group>"; };
-		DABB3A72278ED98900188647 /* RandomCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatViewModel.swift; sourceTree = "<group>"; };
+		DABB3A72278ED98900188647 /* DefaultRandomCatViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DefaultRandomCatViewModel.swift; sourceTree = "<group>"; };
 		DAC3B74F278FFFA600FF9E9A /* RandomCatUseCase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatUseCase.swift; sourceTree = "<group>"; };
 		DAC3B751278FFFC200FF9E9A /* RandomCatRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomCatRepository.swift; sourceTree = "<group>"; };
 		DAC3B753278FFFE000FF9E9A /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
@@ -174,7 +174,7 @@
 		DABB3A71278ED96800188647 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				DABB3A72278ED98900188647 /* RandomCatViewModel.swift */,
+				DABB3A72278ED98900188647 /* DefaultRandomCatViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -366,7 +366,7 @@
 				DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */,
 				DABB3A5D278EC76100188647 /* TabBarController.swift in Sources */,
 				DAC3B75D27901AF600FF9E9A /* CatImageConstant.swift in Sources */,
-				DABB3A73278ED98900188647 /* RandomCatViewModel.swift in Sources */,
+				DABB3A73278ED98900188647 /* DefaultRandomCatViewModel.swift in Sources */,
 				DAC3B750278FFFA600FF9E9A /* RandomCatUseCase.swift in Sources */,
 				DABB3A49278EC6D300188647 /* AppDelegate.swift in Sources */,
 				DAC3B754278FFFE000FF9E9A /* NetworkService.swift in Sources */,
