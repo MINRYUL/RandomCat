@@ -14,60 +14,86 @@ import Combine
 protocol RandomCatViewModel {
     var disposeBag: DisposeBag { get set }
     
-    var input: RandomCatInput { get set }
-    var output: RandomCatOutput { get set }
+    var input: RandomCatViewModelInput { get set }
+    var output: RandomCatViewModelOutput { get set }
 }
 
-struct RandomCatInput {
+struct RandomCatViewModelInput {
     var loadRandomCat: BehaviorSubject<Void?>
+    var refersh: BehaviorSubject<Void?>
 }
 
-struct RandomCatOutput {
+struct RandomCatViewModelOutput {
     var randomCatModel: Driver<[CatModel]>
 }
 
-final class DefaultRandomCatViewModel {
+final class DefaultRandomCatViewModel: RandomCatViewModel {
     
     var disposeBag: DisposeBag = DisposeBag()
     
-    var input: RandomCatInput
-    var output: RandomCatOutput
+    var input: RandomCatViewModelInput
+    var output: RandomCatViewModelOutput
     
-    
+    //MARK: - Input
     private let _loadRandomCat = BehaviorSubject<Void?>(value: nil)
+    private let _refersh = BehaviorSubject<Void?>(value: nil)
+    
+    //MARK: - Output
     private let _randomCatModel = BehaviorSubject<[CatModel]>(value: [])
+    private let _refershRandomCat = BehaviorSubject<[CatModel]>(value: [])
     
     @Published var catModels = [CatModel]()
-    private let randomCatUseCase: RandomCatUseCase
+    private let usecase: RandomCatUseCase
     
     init(randomCatUseCase: RandomCatUseCase) {
-        self.randomCatUseCase = randomCatUseCase
+        self.usecase = randomCatUseCase
         
-        self.input = RandomCatInput(
-            loadRandomCat: _loadRandomCat.asObserver()
+        self.input = RandomCatViewModelInput(
+            loadRandomCat: _loadRandomCat.asObserver(),
+            refersh: _refersh.asObserver()
         )
-        self.output = RandomCatOutput(
+        self.output = RandomCatViewModelOutput(
             randomCatModel: _randomCatModel.asDriver(onErrorJustReturn: [])
         )
         
         self._bindLoadRandomCat()
+        self._bindRefersh()
     }
     
     func fetchCatData() {
-        self.randomCatUseCase.fetchCatData() { [weak self] catModel in
-            self?.catModels.append(catModel)
-        }
+//        self.randomCatUseCase.fetchCatData() { [weak self] catModel in
+//            self?.catModels.append(catModel)
+//        }
     }
 }
 
 //MARK: - Binding
 extension DefaultRandomCatViewModel {
-    //MARK: - Input
+    //MARK: - Input Binding
     private func _bindLoadRandomCat() {
         self._loadRandomCat
             .compactMap { $0 }
-            .subscribe(onNext: {
-                
+            .subscribe(onNext: { [weak self] in
+                self?.usecase.input.loadRandomCat.onNext(())
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindRefersh() {
+        self._refersh
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] in
+                self?.usecase.input.refersh.onNext(())
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Output Binding
+    private func _bindRandomCatModel() {
+        self.usecase.output.randomCatModel
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] catModel in
+                self?._randomCatModel.onNext(catModel)
             })
             .disposed(by: disposeBag)
     }

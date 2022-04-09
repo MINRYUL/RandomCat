@@ -77,7 +77,11 @@ final class RandomCatViewController: UIViewController {
     }
     
     private func configureViewModel() {
-        self.viewModel = DefaultRandomCatViewModel(randomCatUseCase: RandomCatUseCase(randomCatRepository: DefaultRandomCatRepository(networkService: DefaultNetworkService())))
+        self.viewModel = DefaultRandomCatViewModel(
+            randomCatUseCase: DefaultRandomCatUseCase(
+                randomCatRepository: DefaultRandomCatRepository()
+            )
+        )
     }
 
     private func configureView() {
