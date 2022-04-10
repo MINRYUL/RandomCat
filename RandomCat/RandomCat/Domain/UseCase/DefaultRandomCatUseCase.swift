@@ -9,6 +9,7 @@ import Foundation
 
 import RxSwift
 import RxRelay
+import os
 
 protocol RandomCatUseCase {
     var disposeBag: DisposeBag { get set }
@@ -24,8 +25,8 @@ struct RandomCatUseCaseInput {
 
 struct RandomCatUSeCaseOutput {
     var randomCatModel: BehaviorSubject<[CatModel]?>
+    var isLoading: BehaviorSubject<Bool?>
 }
-
 
 final class DefaultRandomCatUseCase: RandomCatUseCase {
     
@@ -42,6 +43,7 @@ final class DefaultRandomCatUseCase: RandomCatUseCase {
     
     //MARK: - Output
     private let _randomCatModel = BehaviorSubject<[CatModel]?>(value: nil)
+    private let _isLoading = BehaviorSubject<Bool?>(value: nil)
     
     //MARK: - Store
     private let _baseImageCount = BehaviorRelay<Int>(value: 20)
@@ -54,7 +56,8 @@ final class DefaultRandomCatUseCase: RandomCatUseCase {
             refersh: _refersh.asObserver()
         )
         self.output = RandomCatUSeCaseOutput(
-            randomCatModel: _randomCatModel.asObserver()
+            randomCatModel: _randomCatModel.asObserver(),
+            isLoading: _isLoading.asObserver()
         )
         
         self._bindLoadRandomCat()
@@ -70,7 +73,10 @@ extension DefaultRandomCatUseCase {
         self._loadRandomCat
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] in
+                guard let count = self?._baseImageCount.value else { return }
                 
+                for _ in 0..<count {                    self?.randomCatRepository.input.loadRandomCat.onNext(())
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -80,7 +86,57 @@ extension DefaultRandomCatUseCase {
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] in
                 self?._randomCatModel.onNext([])
+                self?.randomCatRepository.input.loadRandomCat.onNext(())
             })
             .disposed(by: disposeBag)
+    }
+    
+    //MARK: - Output Binding
+    private func _bindRandomCatModel() {
+        self.randomCatRepository.output.randomCatModel
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] catModel in
+                guard let self = self else { return }
+                
+                guard var randomCatModel = try? self._randomCatModel.value() else { return }
+                randomCatModel.append(self._makeCatModel(catModel: catModel))
+                self._randomCatModel.onNext(randomCatModel)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindError() {
+        self.randomCatRepository.output.error
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] error in
+                guard let error = error as? NetworkError  else { return }
+                
+                switch error {
+                case .error(let statusCode, let data):
+                    dump(statusCode)
+                    dump(data)
+                case .notConnected:
+                    break
+                case .unknownError:
+                    break
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindIsLoading() {
+        self.randomCatRepository.output.isLoading
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] isLoading in
+                self?._isLoading.onNext(isLoading)
+            })
+            .disposed(by: disposeBag)
+    }
+}
+
+//MARK: - Making
+extension DefaultRandomCatUseCase {
+    private func _makeCatModel(catModel: CatImageResponseDTO) -> CatModel {
+        return CatModel(id: UUID(), url: catModel.url)
     }
 }

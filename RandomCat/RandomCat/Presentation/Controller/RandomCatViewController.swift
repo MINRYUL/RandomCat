@@ -8,6 +8,9 @@
 import UIKit
 import Combine
 
+import RxSwift
+import RxCocoa
+
 final class RandomCatViewController: UIViewController {
     enum RandomCatSection: Int, CaseIterable {
         case main
@@ -27,7 +30,6 @@ final class RandomCatViewController: UIViewController {
     private var snapShot: RandomCatSnapshot?
     private var viewModel: DefaultRandomCatViewModel?
     private var cancellables = Set<AnyCancellable>()
-    private var imageCount = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -41,7 +43,7 @@ final class RandomCatViewController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidAppear(animated)
-        self.viewModel?.fetchCatData()
+//        self.viewModel?.fetchCatData()
     }
     
     private func bindSnapShotApply(section: RandomCatSection, item: [AnyHashable]) {
@@ -140,7 +142,7 @@ extension RandomCatViewController: UICollectionViewDelegate {
             return
         }
         
-        self.viewModel?.fetchCatData()
+//        self.viewModel?
     }
 }
 

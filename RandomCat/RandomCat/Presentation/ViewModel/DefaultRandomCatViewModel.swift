@@ -59,12 +59,6 @@ final class DefaultRandomCatViewModel: RandomCatViewModel {
         self._bindLoadRandomCat()
         self._bindRefersh()
     }
-    
-    func fetchCatData() {
-//        self.randomCatUseCase.fetchCatData() { [weak self] catModel in
-//            self?.catModels.append(catModel)
-//        }
-    }
 }
 
 //MARK: - Binding

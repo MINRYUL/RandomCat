@@ -22,7 +22,7 @@ struct RandomCatRepositoryInput {
 }
 
 struct RandomCatRepositoryOutput {
-    var randomCatModel: BehaviorSubject<[CatModel]?>
+    var randomCatModel: BehaviorSubject<CatImageResponseDTO?>
     var error: BehaviorSubject<Error?>
     var isLoading: BehaviorSubject<Bool?>
 }
@@ -38,7 +38,7 @@ final class DefaultRandomCatRepository: RandomCatRepository {
     private let _loadRandomCat = BehaviorSubject<Void?>(value: nil)
     
     //MARK: - Output
-    private let _randomCatModel = BehaviorSubject<[CatModel]?>(value: nil)
+    private let _randomCatModel = BehaviorSubject<CatImageResponseDTO?>(value: nil)
     private let _error = BehaviorSubject<Error?>(value: nil)
     private let _isLoading = BehaviorSubject<Bool?>(value: nil)
     
@@ -51,6 +51,8 @@ final class DefaultRandomCatRepository: RandomCatRepository {
             error: _error,
             isLoading: _isLoading
         )
+        
+        self._bindLoadRandomCat()
     }
 }
 
@@ -67,19 +69,24 @@ extension DefaultRandomCatRepository {
             }
             .subscribe(onNext: { [weak self] data in
                 self?._isLoading.onNext(false)
-                
+                self?._makeRandomCatModel(data: data)
             },onError: { [weak self] error in
                 self?._isLoading.onNext(false)
-                
+                 
+                guard let error = error as? NetworkError else {
+                    return
+                }
+                self?._error.onNext(error)
             })
             .disposed(by: disposeBag)
     }
 }
 
 //MARK: - Making
-extension DefaultRandomCatViewModel {
-    private func _makeRandomCatModel(data: Data) {
-        
+extension DefaultRandomCatRepository {
+    private func _makeRandomCatModel(data: [CatImageResponseDTO]) {
+        guard let firstCatModel = data.first else { return }
+        self._randomCatModel.onNext(firstCatModel)
     }
 }
 
