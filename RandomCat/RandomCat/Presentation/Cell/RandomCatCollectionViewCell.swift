@@ -40,7 +40,13 @@ final class RandomCatCollectionViewCell: UICollectionViewCell {
             guard let image = image, image != item.image,
                   let item = item as? ImageModel else { return }
             DispatchQueue.main.async { [weak self] in
-                self?.catImage.image = image
+                UIView.animate(
+                    withDuration: 0.3,
+                    delay: 0,
+                    options: .allowAnimatedContent,
+                    animations: {
+                        self?.catImage.image = image
+                    })
             }
         }
     }

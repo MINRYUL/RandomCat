@@ -42,7 +42,6 @@ final class DefaultRandomCatViewModel: RandomCatViewModel {
     private let _randomCatModel = BehaviorSubject<[CatModel]>(value: [])
     private let _refershRandomCat = BehaviorSubject<[CatModel]>(value: [])
     
-    @Published var catModels = [CatModel]()
     private let usecase: RandomCatUseCase
     
     init(randomCatUseCase: RandomCatUseCase) {
@@ -58,6 +57,7 @@ final class DefaultRandomCatViewModel: RandomCatViewModel {
         
         self._bindLoadRandomCat()
         self._bindRefersh()
+        self._bindRandomCatModel()
     }
 }
 

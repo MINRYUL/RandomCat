@@ -16,6 +16,8 @@ final class RandomCatViewController: UIViewController {
         case main
     }
     
+    private var disposeBag: DisposeBag = DisposeBag()
+    
     typealias RandomCatDataSource = UICollectionViewDiffableDataSource<RandomCatSection, AnyHashable>
     typealias RandomCatSnapshot = NSDiffableDataSourceSnapshot<RandomCatSection, AnyHashable>
     
@@ -26,6 +28,18 @@ final class RandomCatViewController: UIViewController {
         return collectionView
     }()
     
+    lazy private var navigationOptionItem: UIBarButtonItem = {
+        let buttonItem = UIBarButtonItem(
+            image: .init(systemName: "list.bullet"),
+            style: .plain,
+            target: self,
+            action: #selector(optionButtonPressed(_:))
+        )
+        buttonItem.tag = 1
+        buttonItem.tintColor = .label
+        return buttonItem
+    }()
+    
     private var dataSource: RandomCatDataSource?
     private var snapShot: RandomCatSnapshot?
     private var viewModel: DefaultRandomCatViewModel?
@@ -33,17 +47,23 @@ final class RandomCatViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         self.configureViewModel()
         self.configureView()
         self.configureCollectionView()
         self.configureSnapShot()
         self.configureDataSource()
-        self.configureBinding()
+        
+        self._bindRandomCatModel()
     }
     
     override func viewWillAppear(_ animated: Bool) {
         self.viewDidAppear(animated)
-//        self.viewModel?.fetchCatData()
+        self.viewModel?.input.loadRandomCat.onNext(())
+    }
+    
+    @objc private func optionButtonPressed(_ sender: Any) {
+    
     }
     
     private func bindSnapShotApply(section: RandomCatSection, item: [AnyHashable]) {
@@ -69,13 +89,12 @@ final class RandomCatViewController: UIViewController {
         self.snapShot?.appendSections([.main])
     }
     
-    private func configureBinding() {
-        self.viewModel?.$catModels
-            .receive(on: DispatchQueue.main)
-            .sink( receiveValue: { [weak self] catModels in
+    private func _bindRandomCatModel() {
+        self.viewModel?.output.randomCatModel
+            .drive { [weak self] catModels in
                 self?.bindSnapShotApply(section: .main, item: catModels)
-            })
-            .store(in: &self.cancellables)
+            }
+            .disposed(by: disposeBag)
     }
     
     private func configureViewModel() {
@@ -89,6 +108,12 @@ final class RandomCatViewController: UIViewController {
     private func configureView() {
         self.view.addSubview(self.randomCollectionView)
         self.view.backgroundColor = .systemBackground
+        
+        self.navigationController?.navigationBar.prefersLargeTitles = true
+        self.navigationController?.navigationBar.topItem?.title = "고양이"
+        
+        self.navigationItem.rightBarButtonItem = self.navigationOptionItem
+        
         NSLayoutConstraint.activate([
             self.randomCollectionView.topAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.topAnchor),
             self.randomCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
@@ -98,7 +123,6 @@ final class RandomCatViewController: UIViewController {
     }
     
     private func configureCollectionView() {
-        self.randomCollectionView.delegate = self
         self.randomCollectionView.collectionViewLayout = self.configureCompositionalLayout()
         
         self.randomCollectionView.register(RandomCatCollectionViewCell.self, forCellWithReuseIdentifier: RandomCatCollectionViewCell.identifier)
@@ -129,20 +153,6 @@ final class RandomCatViewController: UIViewController {
         
         self.dataSource = datasource
         self.randomCollectionView.dataSource = datasource
-    }
-}
-
-extension RandomCatViewController: UICollectionViewDelegate {
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        print(indexPath)
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, willDisplay: UICollectionViewCell, forItemAt: IndexPath) {
-        guard forItemAt.row == (self.viewModel?.catModels.count ?? 0) - 1 else {
-            return
-        }
-        
-//        self.viewModel?
     }
 }
 

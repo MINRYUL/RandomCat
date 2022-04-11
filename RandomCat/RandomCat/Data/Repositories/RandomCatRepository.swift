@@ -24,7 +24,6 @@ struct RandomCatRepositoryInput {
 struct RandomCatRepositoryOutput {
     var randomCatModel: BehaviorSubject<CatImageResponseDTO?>
     var error: BehaviorSubject<Error?>
-    var isLoading: BehaviorSubject<Bool?>
 }
 
 final class DefaultRandomCatRepository: RandomCatRepository {
@@ -40,7 +39,6 @@ final class DefaultRandomCatRepository: RandomCatRepository {
     //MARK: - Output
     private let _randomCatModel = BehaviorSubject<CatImageResponseDTO?>(value: nil)
     private let _error = BehaviorSubject<Error?>(value: nil)
-    private let _isLoading = BehaviorSubject<Bool?>(value: nil)
     
     init() {
         self.input = RandomCatRepositoryInput(
@@ -48,8 +46,7 @@ final class DefaultRandomCatRepository: RandomCatRepository {
         )
         self.output = RandomCatRepositoryOutput(
             randomCatModel: _randomCatModel,
-            error: _error,
-            isLoading: _isLoading
+            error: _error
         )
         
         self._bindLoadRandomCat()
@@ -62,16 +59,12 @@ extension DefaultRandomCatRepository {
     private func _bindLoadRandomCat() {
         self._loadRandomCat
             .compactMap { $0 }
-            .flatMapLatest { [weak self] _ -> Observable<[CatImageResponseDTO]> in
-        
-                self?._isLoading.onNext(true)
+            .flatMapLatest {
                 return DefaultNetworkService.instance.get(url: CatImageConstant.cat, headers: [:])
             }
             .subscribe(onNext: { [weak self] data in
-                self?._isLoading.onNext(false)
                 self?._makeRandomCatModel(data: data)
             },onError: { [weak self] error in
-                self?._isLoading.onNext(false)
                  
                 guard let error = error as? NetworkError else {
                     return
