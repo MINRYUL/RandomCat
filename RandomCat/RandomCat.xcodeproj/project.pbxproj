@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		AACB3B892805A36A00CF8E64 /* Reactive+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = AACB3B882805A36A00CF8E64 /* Reactive+Extension.swift */; };
 		DAB6C8262793FC6B00BAF7E6 /* CatModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */; };
 		DAB6C8282794010300BAF7E6 /* ImageCacheManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8272794010300BAF7E6 /* ImageCacheManager.swift */; };
 		DAB6C82A2794041200BAF7E6 /* ImageItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = DAB6C8292794041200BAF7E6 /* ImageItem.swift */; };
@@ -30,6 +31,7 @@
 
 /* Begin PBXFileReference section */
 		19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomCat.release.xcconfig"; path = "Target Support Files/Pods-RandomCat/Pods-RandomCat.release.xcconfig"; sourceTree = "<group>"; };
+		AACB3B882805A36A00CF8E64 /* Reactive+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Reactive+Extension.swift"; sourceTree = "<group>"; };
 		C006629A599704B0457CD4BB /* Pods-RandomCat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RandomCat.debug.xcconfig"; path = "Target Support Files/Pods-RandomCat/Pods-RandomCat.debug.xcconfig"; sourceTree = "<group>"; };
 		D17BCB60FA404564B53844E4 /* Pods_RandomCat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RandomCat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		DAB6C8252793FC6B00BAF7E6 /* CatModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CatModel.swift; sourceTree = "<group>"; };
@@ -73,6 +75,14 @@
 				19EC53E68EDFA0CE51E2F99E /* Pods-RandomCat.release.xcconfig */,
 			);
 			path = Pods;
+			sourceTree = "<group>";
+		};
+		AACB3B872805A35800CF8E64 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				AACB3B882805A36A00CF8E64 /* Reactive+Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		DABB3A3C278EC6D300188647 = {
@@ -226,6 +236,7 @@
 		DAC3B75A27901A9400FF9E9A /* Utility */ = {
 			isa = PBXGroup;
 			children = (
+				AACB3B872805A35800CF8E64 /* Extension */,
 				DAC3B75B27901ABC00FF9E9A /* Constant */,
 			);
 			path = Utility;
@@ -376,6 +387,7 @@
 				DABB3A66278ECCD900188647 /* RandomCatCollectionViewCell.swift in Sources */,
 				DAB6C82A2794041200BAF7E6 /* ImageItem.swift in Sources */,
 				DAC3B752278FFFC200FF9E9A /* RandomCatRepository.swift in Sources */,
+				AACB3B892805A36A00CF8E64 /* Reactive+Extension.swift in Sources */,
 				DAC3B7592790134300FF9E9A /* CatImageResponseDTO.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

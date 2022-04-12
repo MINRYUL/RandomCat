@@ -126,6 +126,13 @@ final class RandomCatViewController: UIViewController {
         self.randomCollectionView.collectionViewLayout = self.configureCompositionalLayout()
         
         self.randomCollectionView.register(RandomCatCollectionViewCell.self, forCellWithReuseIdentifier: RandomCatCollectionViewCell.identifier)
+        
+        guard let viewModel = self.viewModel else { return }
+        
+        self.randomCollectionView.rx
+            .reachedBottom()
+            .bind(to: viewModel.input.loadRandomCat)
+            .disposed(by: disposeBag)
     }
     
     private func configureCompositionalLayout() -> UICollectionViewCompositionalLayout {
