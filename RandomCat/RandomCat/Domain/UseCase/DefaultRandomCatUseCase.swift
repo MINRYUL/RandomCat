@@ -75,7 +75,9 @@ extension DefaultRandomCatUseCase {
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] in
                 self?._isLoading.onNext(true)
-                self?.randomCatRepository.input.loadRandomCat.onNext(())
+                for _ in 0..<(self?._baseImageCount.value ?? 0) {
+                    self?.randomCatRepository.input.loadRandomCat.onNext(())
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -86,7 +88,9 @@ extension DefaultRandomCatUseCase {
             .subscribe(onNext: { [weak self] in
                 self?._randomCatModel.onNext([])
                 self?._isLoading.onNext(true)
-                self?.randomCatRepository.input.loadRandomCat.onNext(())
+                for _ in 0..<(self?._baseImageCount.value ?? 0) {
+                    self?.randomCatRepository.input.loadRandomCat.onNext(())
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -101,7 +105,6 @@ extension DefaultRandomCatUseCase {
                 randomCatModel.append(self._makeCatModel(catModel: catModel))
                 self._randomCatModel.onNext(randomCatModel)
                 guard randomCatModel.count % self._baseImageCount.value == 0 else {
-                    self.randomCatRepository.input.loadRandomCat.onNext(())
                     return
                 }
                 self._isLoading.onNext(false)

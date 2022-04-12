@@ -59,7 +59,7 @@ extension DefaultRandomCatRepository {
     private func _bindLoadRandomCat() {
         self._loadRandomCat
             .compactMap { $0 }
-            .flatMapLatest {
+            .flatMap {
                 return DefaultNetworkService.instance.get(url: CatImageConstant.cat, headers: [:])
             }
             .subscribe(onNext: { [weak self] data in

@@ -57,11 +57,6 @@ final class RandomCatViewController: UIViewController {
         self._bindRandomCatModel()
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        self.viewDidAppear(animated)
-        self.viewModel?.input.loadRandomCat.onNext(())
-    }
-    
     @objc private func optionButtonPressed(_ sender: Any) {
     
     }
@@ -131,15 +126,27 @@ final class RandomCatViewController: UIViewController {
         
         self.randomCollectionView.rx
             .reachedBottom()
+            .skip(1)
             .bind(to: viewModel.input.loadRandomCat)
             .disposed(by: disposeBag)
     }
     
     private func configureCompositionalLayout() -> UICollectionViewCompositionalLayout {
         return UICollectionViewCompositionalLayout { (_, _) -> NSCollectionLayoutSection? in
-            let item = NSCollectionLayoutItem(layoutSize: .init(widthDimension: .fractionalWidth(0.5), heightDimension: .fractionalHeight(1.0)))
+            let item = NSCollectionLayoutItem(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(0.5),
+                    heightDimension: .fractionalHeight(1.0)
+                )
+            )
             item.contentInsets = .init(top: 3, leading: 3, bottom: 3, trailing: 3)
-            let group = NSCollectionLayoutGroup.horizontal(layoutSize: .init(widthDimension: .fractionalWidth(1.0), heightDimension: .fractionalWidth(0.5)), subitems: [item])
+            let group = NSCollectionLayoutGroup.horizontal(
+                layoutSize: .init(
+                    widthDimension: .fractionalWidth(1.0),
+                    heightDimension: .fractionalWidth(0.5)
+                ),
+                subitems: [item]
+            )
             let section = NSCollectionLayoutSection(group: group)
             section.orthogonalScrollingBehavior = .none
             section.contentInsets = .init(top: 0, leading: 0, bottom: 0, trailing: 0)
@@ -149,7 +156,8 @@ final class RandomCatViewController: UIViewController {
     }
     
     private func configureDataSource() {
-        let datasource = RandomCatDataSource(collectionView: self.randomCollectionView, cellProvider: {(collectionView, indexPath, item) -> UICollectionViewCell in
+        let datasource = RandomCatDataSource(collectionView: self.randomCollectionView, cellProvider: {
+            (collectionView, indexPath, item) -> UICollectionViewCell in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: RandomCatCollectionViewCell.identifier, for: indexPath) as? RandomCatCollectionViewCell else {
                 return UICollectionViewCell()
             }
