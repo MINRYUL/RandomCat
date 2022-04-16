@@ -74,7 +74,7 @@ extension DefaultRandomCatUseCase {
         self._loadRandomCat
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] in
-                self?._isLoading.onNext(true)
+                self?._isLoading.onNext(false)
                 for _ in 0..<(self?._baseImageCount.value ?? 0) {
                     self?.randomCatRepository.input.loadRandomCat.onNext(())
                 }
@@ -87,7 +87,7 @@ extension DefaultRandomCatUseCase {
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] in
                 self?._randomCatModel.onNext([])
-                self?._isLoading.onNext(true)
+                self?._isLoading.onNext(false)
                 for _ in 0..<(self?._baseImageCount.value ?? 0) {
                     self?.randomCatRepository.input.loadRandomCat.onNext(())
                 }
@@ -105,9 +105,9 @@ extension DefaultRandomCatUseCase {
                 randomCatModel.append(self._makeCatModel(catModel: catModel))
                 self._randomCatModel.onNext(randomCatModel)
                 guard randomCatModel.count % self._baseImageCount.value == 0 else {
+                    self._isLoading.onNext(true)
                     return
                 }
-                self._isLoading.onNext(false)
             })
             .disposed(by: disposeBag)
     }
@@ -117,7 +117,7 @@ extension DefaultRandomCatUseCase {
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] error in
                 guard let error = error as? NetworkError  else { return }
-                self?._isLoading.onNext(false)
+                self?._isLoading.onNext(true)
                 switch error {
                 case .error(let statusCode, let data):
                     dump(statusCode)

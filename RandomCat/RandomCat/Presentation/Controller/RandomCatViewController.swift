@@ -40,6 +40,13 @@ final class RandomCatViewController: UIViewController {
         return buttonItem
     }()
     
+    lazy private var progressView: ProgressView = {
+        let view = ProgressView(color: .systemGray, lineWidth: 5)
+        view.translatesAutoresizingMaskIntoConstraints = false
+        view.isHidden = true
+        return view
+    }()
+    
     private var dataSource: RandomCatDataSource?
     private var snapShot: RandomCatSnapshot?
     private var viewModel: DefaultRandomCatViewModel?
@@ -55,6 +62,7 @@ final class RandomCatViewController: UIViewController {
         self.configureDataSource()
         
         self._bindRandomCatModel()
+        self._bindIsLoading()
     }
     
     @objc private func optionButtonPressed(_ sender: Any) {
@@ -92,6 +100,14 @@ final class RandomCatViewController: UIViewController {
             .disposed(by: disposeBag)
     }
     
+    private func _bindIsLoading() {
+        self.viewModel?.output.isLoading
+            .drive { [weak self] isLoading in
+                self?.progressView.isHidden = isLoading
+            }
+            .disposed(by: disposeBag)
+    }
+    
     private func configureViewModel() {
         self.viewModel = DefaultRandomCatViewModel(
             randomCatUseCase: DefaultRandomCatUseCase(
@@ -102,6 +118,7 @@ final class RandomCatViewController: UIViewController {
 
     private func configureView() {
         self.view.addSubview(self.randomCollectionView)
+        self.view.addSubview(self.progressView)
         self.view.backgroundColor = .systemBackground
         
         self.navigationController?.navigationBar.prefersLargeTitles = true
@@ -114,6 +131,13 @@ final class RandomCatViewController: UIViewController {
             self.randomCollectionView.leadingAnchor.constraint(equalTo: self.view.leadingAnchor),
             self.randomCollectionView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
             self.randomCollectionView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor)
+        ])
+        
+        NSLayoutConstraint.activate([
+            self.progressView.bottomAnchor.constraint(equalTo: self.view.safeAreaLayoutGuide.bottomAnchor),
+            self.progressView.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            self.progressView.widthAnchor.constraint(equalToConstant: 30),
+            self.progressView.heightAnchor.constraint(equalTo: self.progressView.widthAnchor)
         ])
     }
     

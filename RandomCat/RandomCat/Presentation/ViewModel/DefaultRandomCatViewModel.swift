@@ -25,6 +25,7 @@ struct RandomCatViewModelInput {
 
 struct RandomCatViewModelOutput {
     var randomCatModel: Driver<[CatModel]>
+    var isLoading: Driver<Bool>
 }
 
 final class DefaultRandomCatViewModel: RandomCatViewModel {
@@ -40,7 +41,7 @@ final class DefaultRandomCatViewModel: RandomCatViewModel {
     
     //MARK: - Output
     private let _randomCatModel = BehaviorSubject<[CatModel]>(value: [])
-    private let _refershRandomCat = BehaviorSubject<[CatModel]>(value: [])
+    private let _isLoading = BehaviorSubject<Bool>(value: true)
     
     private let usecase: RandomCatUseCase
     
@@ -52,12 +53,14 @@ final class DefaultRandomCatViewModel: RandomCatViewModel {
             refersh: _refersh.asObserver()
         )
         self.output = RandomCatViewModelOutput(
-            randomCatModel: _randomCatModel.asDriver(onErrorJustReturn: [])
+            randomCatModel: _randomCatModel.asDriver(onErrorJustReturn: []),
+            isLoading: _isLoading.asDriver(onErrorJustReturn: false)
         )
         
         self._bindLoadRandomCat()
         self._bindRefersh()
         self._bindRandomCatModel()
+        self._bindIsLoading()
     }
 }
 
@@ -88,6 +91,15 @@ extension DefaultRandomCatViewModel {
             .compactMap { $0 }
             .subscribe(onNext: { [weak self] catModel in
                 self?._randomCatModel.onNext(catModel)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func _bindIsLoading() {
+        self.usecase.output.isLoading
+            .compactMap { $0 }
+            .subscribe(onNext: { [weak self] isLoading in
+                self?._isLoading.onNext(isLoading)
             })
             .disposed(by: disposeBag)
     }
